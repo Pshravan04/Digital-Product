@@ -250,4 +250,88 @@ document.addEventListener('DOMContentLoaded', () => {
             loaderText.appendChild(span);
         });
     }
+
+    // === LIVE USER COUNTER FOR STICKY BAR ===
+    // === LIVE USER COUNTER FOR STICKY BAR ===
+    function initUserCounter() {
+        const counterEl = document.getElementById('live-buyer-count');
+        if (!counterEl) return;
+
+        let count = 1245;
+
+        function updateCounter() {
+            // Randomly increment by 1-3
+            const increment = Math.floor(Math.random() * 3) + 1;
+            count += increment;
+            counterEl.textContent = count.toLocaleString();
+
+            // Schedule next update between 3-8 seconds
+            const nextUpdate = Math.floor(Math.random() * 5000) + 3000;
+            setTimeout(updateCounter, nextUpdate);
+        }
+
+        updateCounter();
+    }
+
+    // === RAZORPAY CHECKOUT INTEGRATION ===
+    function initRazorpayCheckout() {
+        // Find all checkout buttons
+        const checkoutBtns = document.querySelectorAll('a[href="#pricing"], .btn-primary, .btn-yellow, .btn-pill-black');
+
+        checkoutBtns.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                // Only trigger if it's the primary CTA or intentional buy button
+                const isBuyButton = btn.classList.contains('btn-primary') ||
+                    btn.classList.contains('btn-yellow') ||
+                    btn.classList.contains('btn-pill-black') ||
+                    btn.textContent.includes('Download') ||
+                    btn.textContent.includes('Access');
+
+                if (isBuyButton) {
+                    e.preventDefault();
+                    launchRazorpay();
+                }
+            });
+        });
+    }
+
+    function launchRazorpay() {
+        const options = {
+            "key": "rzp_test_YOUR_KEY_HERE", // Enter the Key ID generated from the Dashboard
+            "amount": "29900", // Amount is in currency subunits. Default currency is INR. Hence, 29900 refers to 29900 paise
+            "currency": "INR",
+            "name": "DFY Prompt Pack",
+            "description": "100+ Professional AI Prompts for Jewellery Collection",
+            "image": "images/mobile-mockup.png", // Replace with your logo/product image
+            "handler": function (response) {
+                // Success Scenario
+                alert("Payment Successful! Payment ID: " + response.razorpay_payment_id);
+                // In a real scenario, you would redirect to a success page or digital download link
+                // window.location.href = "success.html";
+            },
+            "prefill": {
+                "name": "", // Enter user name for auto-fill
+                "email": "",
+                "contact": ""
+            },
+            "notes": {
+                "address": "Digital Product Purchase"
+            },
+            "theme": {
+                "color": "#E8446D" // Matching the brand accent color
+            }
+        };
+
+        const rzp1 = new Razorpay(options);
+
+        rzp1.on('payment.failed', function (response) {
+            alert("Payment Failed: " + response.error.description);
+        });
+
+        rzp1.open();
+    }
+
+    initRazorpayCheckout();
+
+    initUserCounter();
 });
