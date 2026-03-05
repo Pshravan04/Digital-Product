@@ -641,7 +641,7 @@ h4, .h4 {
   background: var(--gradient-main);
   color: #FFFFFF;
   font-family: var(--font-body);
-  font-size: 15px;
+  font-size: 12px;
   font-weight: 700;
   border: none;
   border-radius: var(--radius-pill);
@@ -2347,7 +2347,7 @@ h4, .h4 {
   .compare-table th, .compare-table td { padding: 16px 12px; font-size: 14px; }
 
   .hero-badges { flex-direction: row; align-items: center; }
-  .hero-layout-centered { display: flex; flex-direction: column; gap: 40px; min-height: auto; padding-bottom: 0; }
+  .hero-layout-centered {display: flex;flex-direction: column;gap: 1px;min-height: auto;padding-bottom: 0;}
   .hero-falling-grid { position: static; width: 100%; height: auto; transform: none; display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 24px; }
   
   .grid-col.col-1, .grid-col.col-4, .grid-col.col-7 { display: none; } /* Hide outer columns on mobile to fit nicely */
@@ -2510,7 +2510,7 @@ h4, .h4 {
 
 .hero-trust-badge {
   margin-top: 24px;
-  max-width: 200px;
+  max-width: 271px;
 }
 
 .pricing-trust-badge {
@@ -2526,4 +2526,3 @@ h4, .h4 {
     display: none !important;
   }
 }
-
