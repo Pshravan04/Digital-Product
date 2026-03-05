@@ -2196,6 +2196,7 @@ h4, .h4 {
   gap: 24px;
   margin-bottom: 48px;
   flex-wrap: wrap;
+  flex-direction: column;
 }
 
 .btn-pill-black {
@@ -2518,9 +2519,20 @@ h4, .h4 {
   max-width: 200px;
 }
 
+.btn-trust-badge {
+  display: block;
+  max-width: 180px;
+  height: auto;
+  margin: 12px auto 0;
+  opacity: 0.9;
+}
+
 @media (max-width: 768px) {
-  .trust-badge {
-    max-width: 280px;
+  .trust-badge, .btn-trust-badge {
+    max-width: 200px;
+  }
+  .hero-trust-badge {
+    max-width: 240px;
   }
   .mobile-hide {
     display: none !important;
