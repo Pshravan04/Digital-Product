@@ -2402,9 +2402,9 @@ h4, .h4 {
   /* Sticky Bar Mobile Adjustments */
   .sticky-bar-container { flex-direction: row; gap: 12px; padding: 8px 16px; justify-content: space-between; }
   .sticky-counter-box { padding: 6px 14px; gap: 8px; flex: 1; min-width: 0; }
-  .count-text { font-size: 13px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-  .count-text strong { font-size: 15px; }
-  .btn-yellow { width: auto; padding: 8px 16px; font-size: 13px; white-space: nowrap; flex-shrink: 0; }
+  .count-text {font-size: 7px !important;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;}
+  .count-text strong {font-size: 9px !important;}
+  .btn-yellow {width: auto;padding: 8px 16px;font-size: 9px !important;white-space: nowrap;flex-shrink: 0;}
 }
 
 /* === STICKY BOTTOM BAR === */
