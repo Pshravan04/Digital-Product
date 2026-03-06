@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Thank You — DFY AI Prompt Pack</title>
+    <title>Thank You — Workflows Vault</title>
     <link rel="stylesheet" href="style.css">
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
     <style>
         .thank-you-wrap {
             min-height: 100vh;
@@ -15,6 +17,7 @@
             padding: 40px 20px;
             background: var(--bg-secondary);
         }
+
         .success-card {
             background: white;
             padding: 60px 40px;
@@ -24,6 +27,7 @@
             box-shadow: var(--shadow-lg);
             animation: heroFadeIn 0.8s var(--ease-out-expo) forwards;
         }
+
         .success-icon {
             width: 80px;
             height: 80px;
@@ -37,63 +41,201 @@
             margin: 0 auto 32px;
             box-shadow: 0 10px 20px rgba(76, 175, 80, 0.2);
         }
-        .success-card h1 { margin-bottom: 16px; font-size: 36px; }
-        .success-card p { color: var(--text-secondary); margin-bottom: 32px; font-size: 18px; }
-        .next-steps {
-            text-align: left;
-            background: var(--bg-secondary);
-            padding: 24px;
-            border-radius: 16px;
+
+        .success-card h1 {
+            margin-bottom: 24px;
+            font-size: clamp(28px, 4vw, 36px);
+            color: var(--text-primary);
+        }
+
+        .success-card p {
+            color: var(--text-secondary);
             margin-bottom: 32px;
+            font-size: 18px;
+            line-height: 1.6;
         }
-        .next-steps h3 { margin-bottom: 12px; font-size: 18px; color: var(--text-primary); }
-        .next-steps ul { list-style: none; }
-        .next-steps li { 
-            position: relative; 
-            padding-left: 28px; 
-            margin-bottom: 12px; 
-            font-size: 15px;
-            color: var(--text-muted);
+
+        /* Upgrade Card Styles */
+        .upgrade-card {
+            background: #FFFBEB;
+            border: 2px dashed #FCD34D;
+            border-radius: 24px;
+            padding: 32px;
+            margin-top: 40px;
+            text-align: center;
+            position: relative;
+            animation: pulse-glow 2s infinite;
         }
-        .next-steps li::before {
-            content: '✓';
-            position: absolute;
-            left: 0;
-            color: #4CAF50;
-            font-weight: bold;
+
+        @keyframes pulse-glow {
+            0% {
+                box-shadow: 0 0 0 0 rgba(252, 211, 77, 0.4);
+            }
+
+            70% {
+                box-shadow: 0 0 0 15px rgba(252, 211, 77, 0);
+            }
+
+            100% {
+                box-shadow: 0 0 0 0 rgba(252, 211, 77, 0);
+            }
+        }
+
+        .upgrade-badge {
+            display: inline-block;
+            background: #F59E0B;
+            color: white;
+            padding: 6px 16px;
+            border-radius: var(--radius-pill);
+            font-size: 14px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .upgrade-card h2 {
+            font-size: 24px;
+            margin-bottom: 12px;
+            color: #92400E;
+        }
+
+        .upgrade-card p {
+            font-size: 16px;
+            color: #B45309;
+            margin-bottom: 24px;
+        }
+
+        .btn-upgrade {
+            background: #10B981;
+            color: white;
+            width: 100%;
+            padding: 18px;
+            border-radius: 16px;
+            font-weight: 700;
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            box-shadow: 0 10px 20px rgba(16, 185, 129, 0.2);
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .btn-upgrade:hover {
+            background: #059669;
+            transform: translateY(-2px);
+            box-shadow: 0 15px 30px rgba(16, 185, 129, 0.3);
+        }
+
+        .btn-download {
+            background: linear-gradient(135deg, #3B82F6 0%, #2563EB 100%);
+            color: white;
+            width: 100%;
+            padding: 18px;
+            border-radius: 16px;
+            font-weight: 700;
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0 10px 20px rgba(37, 99, 235, 0.2);
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .btn-download:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 30px rgba(37, 99, 235, 0.3);
+        }
+
+        .offer-timer {
+            font-size: 13px;
+            color: #B45309;
+            margin-top: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            opacity: 0.8;
         }
     </style>
 </head>
+
 <body>
     <div class="thank-you-wrap">
         <div class="success-card">
+            <div class="success-logo" style="margin-bottom: 24px;">
+                <img src="images/Logo.png" alt="Workflows Vault" style="max-width: 180px;">
+            </div>
             <div class="success-icon">✓</div>
-            <h1>Purchase Successful!</h1>
-            <p>Welcome to the DFY AI Prompt Pack family. Your payment was processed securely via Razorpay.</p>
-            
-            <div class="next-steps">
-                <h3>What happens next?</h3>
-                <ul>
-                    <li>Check your inbox for a confirmation email.</li>
-                    <li>Your download link has been sent to your registered email.</li>
-                    <li>Access the prompts and start creating studio-quality content!</li>
-                </ul>
+            <h1>🎉 Thank You! Your Order Is Successful</h1>
+            <p>You've just unlocked instant access to the <strong>Workflows Vault</strong>.</p>
+
+            <a href="#" class="btn-download">
+                <span>📁</span> Download Now Instant Access
+            </a>
+
+            <div class="upgrade-card">
+                <div class="upgrade-badge">🔥 ONE-TIME UPGRADE OFFER (Only Now)</div>
+                <h2>Complete Your Collection</h2>
+                <p>Unlock the complete <strong>Skill Mastery Pack</strong> — AI, Tech & Marketing courses worth ₹25,000+
+                    — today for just <strong>₹99</strong>.</p>
+
+                <a href="#" id="upgrade-button" class="btn-upgrade">
+                    <span>🚀</span> YES, UPGRADE MY ORDER → ₹99 ONLY
+                </a>
+
+                <div class="offer-timer">
+                    <span>🕒</span> This offer disappears after you leave this page.
+                </div>
             </div>
 
-            <a href="index.html" class="btn-primary" style="width: 100%; justify-content: center;">
-                Return to Home
-            </a>
+            <div style="margin-top: 40px;">
+                <a href="index.html" style="color: var(--text-muted); text-decoration: none; font-size: 14px;">
+                    ← Return to Home
+                </a>
+            </div>
         </div>
     </div>
 
     <footer class="footer">
         <div class="container">
-            <p>© 2026 DFY Prompts. All rights reserved.</p>
+            <div class="footer-logo">
+                <img src="images/Logo.png" alt="Workflows Vault" class="footer-logo-img">
+            </div>
+            <p>© 2026 Workflows Vault. All rights reserved.</p>
         </div>
     </footer>
 
     <script>
-        // Confetti effect or other celebration can go here
+        document.getElementById('upgrade-button').addEventListener('click', function (e) {
+            e.preventDefault();
+            launchUpgradeCheckout();
+        });
+
+        function launchUpgradeCheckout() {
+            const options = {
+                "key": "rzp_test_YOUR_KEY_HERE",
+                "amount": "9900", // ₹99
+                "currency": "INR",
+                "name": "Workflows Vault Upgrade",
+                "description": "Skill Mastery Pack Bundle",
+                "image": "images/Logo.png",
+                "handler": function (response) {
+                    window.location.href = "thank-you-upgrade.html";
+                },
+                "theme": {
+                    "color": "#10B981"
+                }
+            };
+            const rzp = new Razorpay(options);
+            rzp.open();
+        }
     </script>
 </body>
+
 </html>

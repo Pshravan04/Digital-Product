@@ -245,7 +245,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     btn.textContent.includes('Download') ||
                     btn.textContent.includes('Access');
 
-                if (isBuyButton) {
+                if (isBuyButton && !btn.href.includes('rzp.io')) {
                     e.preventDefault();
                     launchRazorpay();
                 }

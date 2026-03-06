@@ -287,6 +287,25 @@ h4, .h4 {
 }
 
 /* === NAVIGATION === */
+.nav-logo-img {
+  height: 48px;
+  width: auto;
+  display: block;
+}
+
+.footer-logo-img {
+  height: 60px;
+  width: auto;
+  margin-bottom: 20px;
+  filter: brightness(0) invert(1); /* Keep it white/silver for dark footer */
+}
+
+.footer-logo {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
 .nav {
   width: 100%;
   padding: 24px 0;
