@@ -3,15 +3,6 @@
    ============================================ */
 
 document.addEventListener('DOMContentLoaded', () => {
-    // === LOADING SCREEN ===
-    const loader = document.querySelector('.loader');
-    if (loader) {
-        setTimeout(() => {
-            loader.classList.add('hidden');
-            document.body.style.overflow = '';
-        }, 1800);
-        document.body.style.overflow = 'hidden';
-    }
 
     // === NAVBAR SCROLL EFFECT ===
     const nav = document.querySelector('.nav');
@@ -238,40 +229,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // === STAGGERED LETTER ANIMATION FOR LOADER ===
-    const loaderText = document.querySelector('.loader-text');
-    if (loaderText) {
-        const text = loaderText.textContent;
-        loaderText.innerHTML = '';
-        text.split('').forEach((char, i) => {
-            const span = document.createElement('span');
-            span.textContent = char === ' ' ? '\u00A0' : char;
-            span.style.animationDelay = `${0.05 * i}s`;
-            loaderText.appendChild(span);
-        });
-    }
 
-    // === LIVE USER COUNTER FOR STICKY BAR ===
-    // === LIVE USER COUNTER FOR STICKY BAR ===
-    function initUserCounter() {
-        const counterEl = document.getElementById('live-buyer-count');
-        if (!counterEl) return;
-
-        let count = 1245;
-
-        function updateCounter() {
-            // Randomly increment by 1-3
-            const increment = Math.floor(Math.random() * 3) + 1;
-            count += increment;
-            counterEl.textContent = count.toLocaleString();
-
-            // Schedule next update between 3-8 seconds
-            const nextUpdate = Math.floor(Math.random() * 5000) + 3000;
-            setTimeout(updateCounter, nextUpdate);
-        }
-
-        updateCounter();
-    }
 
     // === RAZORPAY CHECKOUT INTEGRATION ===
     function initRazorpayCheckout() {
@@ -305,9 +263,7 @@ document.addEventListener('DOMContentLoaded', () => {
             "image": "images/mobile-mockup.png", // Replace with your logo/product image
             "handler": function (response) {
                 // Success Scenario
-                alert("Payment Successful! Payment ID: " + response.razorpay_payment_id);
-                // In a real scenario, you would redirect to a success page or digital download link
-                // window.location.href = "success.html";
+                window.location.href = "thank-you.html";
             },
             "prefill": {
                 "name": "", // Enter user name for auto-fill
@@ -331,7 +287,4 @@ document.addEventListener('DOMContentLoaded', () => {
         rzp1.open();
     }
 
-    initRazorpayCheckout();
-
-    initUserCounter();
 });
