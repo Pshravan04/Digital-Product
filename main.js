@@ -1,5 +1,5 @@
 /* ============================================
-   DFY PROMPT PACK — INTERACTIONS & ANIMATIONS
+   100+ DFY AI Prompts — INTERACTIONS & ANIMATIONS
    ============================================ */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -263,7 +263,7 @@ document.addEventListener('DOMContentLoaded', () => {
             "image": "images/mobile-mockup.png", // Replace with your logo/product image
             "handler": function (response) {
                 // Success Scenario
-                window.location.href = "thank-you.html";
+                window.location.href = "order-confirmed-jewelry.html";
             },
             "prefill": {
                 "name": "", // Enter user name for auto-fill

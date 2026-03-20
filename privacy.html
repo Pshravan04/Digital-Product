@@ -4,72 +4,139 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Privacy Policy — DFY AI Prompt Pack</title>
+    <title>Privacy Policy — 100+ DFY AI Prompts</title>
     <link rel="stylesheet" href="style.css">
     <style>
-        .legal-content {
-            padding: 120px 0 80px;
-            max-width: 800px;
+        .legal-header {
+            padding: 160px 0 60px;
+            background: var(--bg-secondary);
+            text-align: center;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .legal-body {
+            padding: 80px 0;
+            max-width: 850px;
             margin: 0 auto;
+        }
+
+        .legal-card {
+            background: white;
+            padding: 60px;
+            border-radius: 32px;
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--border);
             line-height: 1.8;
         }
 
-        .legal-content h1 {
-            margin-bottom: 40px;
-            font-family: var(--font-display);
-            font-size: 48px;
-        }
-
-        .legal-content h2 {
+        .legal-card h2 {
             margin: 40px 0 20px;
-            font-family: var(--font-display);
-        }
-
-        .legal-content p {
-            color: var(--text-secondary);
-            margin-bottom: 20px;
-        }
-
-        .back-home {
-            display: inline-block;
-            margin-bottom: 40px;
+            font-size: 24px;
             color: var(--text-primary);
-            text-decoration: none;
-            font-weight: 600;
+        }
+
+        .legal-card p {
+            color: var(--text-secondary);
+            margin-bottom: 24px;
+            font-size: 17px;
+        }
+
+        .legal-card ul {
+            margin-bottom: 24px;
+            padding-left: 20px;
+            color: var(--text-secondary);
+        }
+
+        .legal-card li {
+            margin-bottom: 12px;
+        }
+
+        @media (max-width: 768px) {
+            .legal-card {
+                padding: 30px;
+                border-radius: 20px;
+            }
+
+            .legal-header {
+                padding: 120px 0 40px;
+            }
         }
     </style>
 </head>
 
 <body>
-    <div class="container legal-content">
-        <a href="index.html" class="back-home">← Back to Site</a>
-        <h1>Privacy Policy</h1>
-        <p>Last Updated: March 2026</p>
+    <!-- === NAVIGATION === -->
+    <nav class="nav scrolled">
+        <div class="nav-inner">
+            <a href="index.html" class="nav-logo">
+                <img src="images/Logo.png" alt="100+ DFY AI Prompts" class="nav-logo-img">
+            </a>
+            <a href="index.html" class="nav-cta">← Back to Site</a>
+        </div>
+    </nav>
 
-        <h2>1. Information We Collect</h2>
-        <p>We collect information you provide directly to us when you make a purchase, including your name, email
-            address, and payment information (processed securely through Razorpay).</p>
+    <header class="legal-header">
+        <div class="container">
+            <span class="label label-gradient">Legal</span>
+            <h1 class="hero-headline" style="font-size: clamp(32px, 5vw, 48px); margin-top: 16px;">Privacy Policy</h1>
+            <p style="color: var(--text-muted); margin-top: 16px;">Last Updated: March 2026</p>
+        </div>
+    </header>
 
-        <h2>2. How We Use Your Information</h2>
-        <p>We use the information we collect to process your orders, provide customer support, and send you occasional
-            updates about your purchase or new products.</p>
+    <main class="legal-body">
+        <div class="container">
+            <div class="legal-card">
+                <p>Your privacy is important to us. This Privacy Policy explains how we collect, use, and protect your
+                    personal information when you use our service.</p>
 
-        <h2>3. Data Security</h2>
-        <p>We implement a variety of security measures to maintain the safety of your personal information. Your payment
-            data is never stored on our servers; it is handled entirely by our secure payment processor, Razorpay.</p>
+                <h2>1. Information We Collect</h2>
+                <p>We collect information you provide directly to us when you make a purchase, including your name,
+                    email
+                    address, and payment information (processed securely through Razorpay). We do not store your credit
+                    card or sensitive payment details.</p>
 
-        <h2>4. Cookies</h2>
-        <p>We use cookies to understand and save your preferences for future visits and compile aggregate data about
-            site traffic and site interaction.</p>
+                <h2>2. How We Use Your Information</h2>
+                <p>We use the information we collect to:</p>
+                <ul>
+                    <li>Process your orders and deliver your prompt pack.</li>
+                    <li>Provide customer support and respond to your requests.</li>
+                    <li>Send you occasional updates about your purchase or new updates to the pack.</li>
+                    <li>Ensure the security of our website and prevent fraud.</li>
+                </ul>
 
-        <h2>5. Your Rights</h2>
-        <p>You have the right to access, correct, or delete your personal information at any time. Please contact us for
-            any such requests.</p>
-    </div>
+                <h2>3. Data Security</h2>
+                <p>We implement a variety of industry-standard security measures to maintain the safety of your personal
+                    information. Your payment
+                    data is handled entirely by our secure payment processor, Razorpay, which is PCI-DSS compliant.</p>
+
+                <h2>4. Third-Party Services</h2>
+                <p>We may use third-party tools (like Razorpay for payments or Google Analytics for site traffic) that
+                    collect information as per their own privacy policies. We do not sell or trade your personal
+                    information to outside parties.</p>
+
+                <h2>5. Cookies</h2>
+                <p>We use cookies to understand and save your preferences for future visits and compile aggregate data
+                    about
+                    site traffic and site interaction to offer better site experiences.</p>
+
+                <h2>6. Your Rights</h2>
+                <p>You have the right to access, correct, or request the deletion of your personal information at any
+                    time. Simply reach out to our support team.</p>
+            </div>
+        </div>
+    </main>
 
     <footer class="footer">
         <div class="container">
-            <p>© 2026 DFY Prompts. All rights reserved.</p>
+            <div class="footer-logo">
+                <img src="images/Logo.png" alt="100+ DFY AI Prompts" class="footer-logo-img">
+            </div>
+            <p>© 2026 100+ DFY AI Prompts. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="privacy.html">Privacy Policy</a>
+                <a href="terms.html">Terms of Service</a>
+                <a href="refund.html">Refund Policy</a>
+            </div>
         </div>
     </footer>
 </body>

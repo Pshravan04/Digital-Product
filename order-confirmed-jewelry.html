@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Thank You — Workflows Vault</title>
+    <title>Thank You — 100+ DFY AI Prompts</title>
     <link rel="stylesheet" href="style.css">
     <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
     <style>
@@ -168,15 +168,14 @@
 <body>
     <div class="thank-you-wrap">
         <div class="success-card">
-            <div class="success-logo" style="margin-bottom: 24px;">
-                <img src="images/Logo.png" alt="Workflows Vault" style="max-width: 180px;">
-            </div>
             <div class="success-icon">✓</div>
             <h1>🎉 Thank You! Your Order Is Successful</h1>
-            <p>You've just unlocked instant access to the <strong>Workflows Vault</strong>.</p>
+            <p>You've just unlocked instant access to the <strong>100+ DFY AI Jewelry Prompt Pack</strong>. No studio.
+                No model. No waiting. <br>Click the button below to download them.</p>
 
-            <a href="#" class="btn-download">
-                <span>📁</span> Download Now Instant Access
+            <a href="https://drive.google.com/drive/folders/1zjcAFFRjrHZ_gt_Z2co8j5J8ZizsXT_V?usp=sharing"
+                class="btn-download" target="_blank">
+                <span>📁</span> Download Now <span class="download-arrow">↓</span>
             </a>
 
             <div class="upgrade-card">
@@ -185,7 +184,7 @@
                 <p>Unlock the complete <strong>Skill Mastery Pack</strong> — AI, Tech & Marketing courses worth ₹25,000+
                     — today for just <strong>₹99</strong>.</p>
 
-                <a href="#" id="upgrade-button" class="btn-upgrade">
+                <a href="https://rzp.io/rzp/2EIGzQlv" class="btn-upgrade">
                     <span>🚀</span> YES, UPGRADE MY ORDER → ₹99 ONLY
                 </a>
 
@@ -205,36 +204,23 @@
     <footer class="footer">
         <div class="container">
             <div class="footer-logo">
-                <img src="images/Logo.png" alt="Workflows Vault" class="footer-logo-img">
+                <img src="images/Logo.png" alt="100+ DFY AI Prompts" class="footer-logo-img">
             </div>
-            <p>© 2026 Workflows Vault. All rights reserved.</p>
+            <p>© 2026 100+ DFY AI Prompts. All rights reserved.</p>
         </div>
     </footer>
 
     <script>
-        document.getElementById('upgrade-button').addEventListener('click', function (e) {
-            e.preventDefault();
-            launchUpgradeCheckout();
-        });
-
-        function launchUpgradeCheckout() {
-            const options = {
-                "key": "rzp_test_YOUR_KEY_HERE",
-                "amount": "9900", // ₹99
-                "currency": "INR",
-                "name": "Workflows Vault Upgrade",
-                "description": "Skill Mastery Pack Bundle",
-                "image": "images/Logo.png",
-                "handler": function (response) {
-                    window.location.href = "thank-you-upgrade.html";
-                },
-                "theme": {
-                    "color": "#10B981"
-                }
-            };
-            const rzp = new Razorpay(options);
-            rzp.open();
-        }
+        // Simple security check: redirect if not coming from a successful payment
+        // (In a real scenario, this would involve a server-side verified token)
+        (function () {
+            const urlParams = new URLSearchParams(window.location.search);
+            const isVerified = urlParams.get('auth') === 'verified' || window.location.hash === '#paid';
+            if (!isVerified && !window.location.host.includes('localhost') && !window.location.host.includes('127.0.0.1')) {
+                // Uncomment the line below for production to enable security
+                // window.location.href = 'index.html';
+            }
+        })();
     </script>
 </body>
 
