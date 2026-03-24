@@ -2540,3 +2540,125 @@ h4, .h4 {
     display: none !important;
   }
 }
+
+/* === EXIT INTENT POPUP === */
+.exit-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.4s var(--ease-out-expo);
+}
+
+.exit-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.exit-card {
+  background: var(--bg-primary);
+  width: 90%;
+  max-width: 500px;
+  border-radius: var(--radius-lg);
+  padding: 40px;
+  position: relative;
+  text-align: center;
+  transform: scale(0.9) translateY(20px);
+  transition: all 0.5s var(--ease-out-back);
+  border: 1px solid var(--border);
+  box-shadow: 0 30px 60px rgba(0,0,0,0.3);
+}
+
+.exit-overlay.active .exit-card {
+  transform: scale(1) translateY(0);
+}
+
+.exit-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: var(--text-muted);
+  transition: color 0.2s ease;
+  line-height: 1;
+}
+
+.exit-close:hover {
+  color: var(--text-primary);
+}
+
+.exit-badge {
+  background: var(--gradient-main);
+  color: white;
+  padding: 6px 14px;
+  border-radius: var(--radius-pill);
+  font-weight: 700;
+  font-size: 14px;
+  display: inline-block;
+  margin-bottom: 20px;
+}
+
+.exit-card h2 {
+  font-size: 32px;
+  margin-bottom: 12px;
+  color: var(--text-primary);
+}
+
+.exit-card p {
+  color: var(--text-secondary);
+  font-size: 18px;
+  margin-bottom: 24px;
+  line-height: 1.5;
+}
+
+.exit-pricing {
+  margin-bottom: 30px;
+  padding: 20px;
+  background: var(--bg-secondary);
+  border-radius: var(--radius-md);
+}
+
+.exit-original {
+  text-decoration: line-through;
+  color: var(--text-muted);
+  font-size: 18px;
+  margin-right: 10px;
+}
+
+.exit-discount {
+  color: var(--accent-start);
+  font-weight: 800;
+  font-size: 36px;
+}
+
+.exit-timer {
+  font-size: 14px;
+  color: var(--text-muted);
+  margin-top: 20px;
+  font-weight: 600;
+}
+
+.exit-timer span {
+  color: var(--accent-start);
+}
+
+@media (max-width: 480px) {
+  .exit-card {
+    padding: 30px 20px;
+  }
+  .exit-card h2 {
+    font-size: 26px;
+  }
+}

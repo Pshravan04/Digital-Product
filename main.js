@@ -287,4 +287,55 @@ document.addEventListener('DOMContentLoaded', () => {
         rzp1.open();
     }
 
+    // === EXIT INTENT LOGIC ===
+    const exitPopup = document.getElementById('exit-popup');
+    const closeExit = document.getElementById('close-exit');
+    const exitTimerClock = document.getElementById('exit-timer-clock');
+    
+    let exitPopupShown = sessionStorage.getItem('exit_popup_shown') === 'true';
+    let timerInterval;
+
+    if (!exitPopupShown) {
+        document.addEventListener('mouseleave', (e) => {
+            // Trigger if mouse leaves through the top of the window
+            if (e.clientY < 0 && !exitPopupShown) {
+                showExitPopup();
+            }
+        });
+    }
+
+    function showExitPopup() {
+        exitPopup.classList.add('active');
+        exitPopupShown = true;
+        sessionStorage.setItem('exit_popup_shown', 'true');
+        startPopupTimer(10); // 10 minute timer
+    }
+
+    function closePopup() {
+        exitPopup.classList.remove('active');
+        if (timerInterval) clearInterval(timerInterval);
+    }
+
+    closeExit.addEventListener('click', closePopup);
+    exitPopup.addEventListener('click', (e) => {
+        if (e.target === exitPopup) closePopup();
+    });
+
+    function startPopupTimer(minutes) {
+        let seconds = minutes * 60;
+        
+        timerInterval = setInterval(() => {
+            const m = Math.floor(seconds / 60);
+            const s = seconds % 60;
+            
+            exitTimerClock.textContent = `${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`;
+            
+            if (seconds <= 0) {
+                clearInterval(timerInterval);
+                exitTimerClock.textContent = "EXPIRED";
+            }
+            seconds--;
+        }, 1000);
+    }
+
 });
