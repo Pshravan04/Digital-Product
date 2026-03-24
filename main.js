@@ -98,11 +98,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (!hoursEl || !minsEl || !secsEl) return;
 
-        // Set end time to midnight tonight (or 24h from first visit)
-        let endTime = localStorage.getItem('countdown_end');
-        if (!endTime || parseInt(endTime) < Date.now()) {
-            endTime = Date.now() + 24 * 60 * 60 * 1000;
-            localStorage.setItem('countdown_end', endTime);
+        // Set end time to 2.5 hours from visit
+        let endTime = localStorage.getItem('countdown_end_v2');
+        if (!endTime || parseInt(endTime) < Date.now() || (parseInt(endTime) - Date.now() > 151 * 60 * 1000)) {
+            endTime = Date.now() + 150 * 60 * 1000; // 2.5 hours
+            localStorage.setItem('countdown_end_v2', endTime);
         }
 
         function update() {
@@ -121,7 +121,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 requestAnimationFrame(update);
             } else {
                 // Reset
-                localStorage.removeItem('countdown_end');
+                localStorage.removeItem('countdown_end_v2');
                 startCountdown();
             }
         }
